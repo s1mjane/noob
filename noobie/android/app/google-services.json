@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "63444900923",
+    "project_id": "noob-d68f6",
+    "storage_bucket": "noob-d68f6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:63444900923:android:d3c7b164fb45d543ff901e",
+        "android_client_info": {
+          "package_name": "com.example.noobie"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZkL5Zf9DnOU7ps9Nr1hvv1b62a-AJtvw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
