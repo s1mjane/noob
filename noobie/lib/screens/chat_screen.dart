@@ -1,7 +1,10 @@
 import 'dart:math';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
+import '../chatting/chat/message.dart';
+import '../chatting/chat/new_message.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key}) : super(key: key);
@@ -27,8 +30,7 @@ class _ChatScreenState extends State<ChatScreen> {
         loggedUser = user;
         print(loggedUser!.email);
       }
-    }
-    catch (e) {
+    } catch (e) {
       print(e);
     }
   }
@@ -36,24 +38,28 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Chat screen'),
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.exit_to_app_sharp,
-              color: Colors.white,
+        appBar: AppBar(
+          title: Text('Chat screen'),
+          actions: [
+            IconButton(
+              icon: Icon(
+                Icons.exit_to_app_sharp,
+                color: Colors.black,
+              ),
+              onPressed: () {
+                _authentication.signOut();
+              },
+            )
+          ],
+        ),
+        body: Container(
+            child: Column(
+          children: [
+            Expanded(
+              child: Messages(),
             ),
-            onPressed: () {
-              _authentication.signOut();
-              Navigator.pop(context);
-            },
-          )
-        ],
-      ),
-      body: Center(
-        child: Text('Chat screen'),
-      ),
-    );
+            NewMessage(),
+          ],
+        )));
   }
 }
